@@ -8,6 +8,9 @@ const forecast = require('./utils/forecast');
 //  EXPRESS INITIALIZATION
 const app = express();
 
+//heroku optimization
+const port = process.env.PORT || 3000
+
 // DEFINE PATHS FOR EXPRESS CONFIG
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views')
@@ -108,8 +111,8 @@ app.get('*', (req, res) =>{
 
 
 // start up the server - port 3000 = developer's port
-app.listen(3000, () =>{
-    console.log('The server is up on port 3000')
+app.listen(port, () =>{
+    console.log(`The server is up on port ${port}`)
 })
 
 // in the browser use : http://localhost:3000/
